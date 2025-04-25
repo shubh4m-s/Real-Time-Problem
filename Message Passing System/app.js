@@ -55,3 +55,4 @@ chat.sendMessage('GE Vernova', 'when are you coming here');
 
 console.log(chat.getMessageById(2)); 
 console.log(chat.getAllMessages());
+console.log(chat.getAllMessages(3));
