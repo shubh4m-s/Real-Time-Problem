@@ -22,10 +22,6 @@ class MessageSystem {
     return this.messages.find(msg => msg.id === id);
   }
 
-  getMessagesByUser(username) {
-    return this.messages.filter(msg => msg.username === username);
-  }
-
   deleteMessage(id) {
     const msg = this.getMessageById(id);
     if (msg) {
@@ -35,9 +31,9 @@ class MessageSystem {
     return null;
   }
 
-  editMessage(id, newMessage) {
+  editMessage(id, newMessage, username) {
     const msg = this.getMessageById(id);
-    if (msg) {
+    if (msg && msg.username === username) {
       msg.message = newMessage;
       return msg;
     }
@@ -58,6 +54,4 @@ chat.sendMessage('GE Vernova', 'my name is GE Vernova');
 chat.sendMessage('GE Vernova', 'when are you coming here');
 
 console.log(chat.getMessageById(2)); 
-console.log(chat.getMessagesByUser('Shubham'));
-
 console.log(chat.getAllMessages());
